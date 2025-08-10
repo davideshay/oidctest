@@ -4,6 +4,7 @@ const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const APIURL = process.env.APIURL || "/api/test";
 
 // Middleware
 app.use(express.json());
@@ -84,7 +85,7 @@ app.get('/', (req, res) => {
         <script>
             async function callAPI() {
                 try {
-                    const response = await fetch('/api/test', {
+                    const response = await fetch('${APIURL}', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
